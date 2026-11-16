@@ -1,0 +1,244 @@
+/* ---------- Colour palette (CSS variables) ---------- */
+:root {
+  --cyan: #1fa5b3;
+  --grey: #6b7280;
+  --grey-light: #f4f5f6;
+  --line: #e3e5e8;
+  --white: #ffffff;
+  --black: #1a1d21;
+}
+
+/* ---------- Base / typography ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.4rem;
+  font-weight: normal;
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+p {
+  color: var(--grey);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* small uppercase heading above each section */
+.label {
+  margin-bottom: 18px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+/* ---------- Navigation bar (id selector) ---------- */
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 48px;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+#navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+
+#navbar ul a {
+  font-size: 0.9rem;
+  color: var(--grey);
+  transition: color 0.3s;
+}
+
+#navbar ul a:hover {
+  color: var(--cyan);
+}
+
+.logo {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  color: var(--black);
+}
+
+/* ---------- Layout ---------- */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 56px 0;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Intro ---------- */
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 80px 0;
+  animation: fadeIn 1s ease both;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+/* ---------- Photo ---------- */
+.photo {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: 50% 62%;
+  border-radius: 6px;
+  box-shadow: 12px 12px 0 var(--cyan);
+}
+
+.photo figcaption {
+  margin-top: 22px;
+  font-size: 0.85rem;
+  color: var(--grey);
+}
+
+#hero h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-top: 22px;
+  background-color: var(--cyan);
+}
+
+.tagline {
+  margin-top: 20px;
+  font-size: 1.15rem;
+}
+
+.intro {
+  max-width: 640px;
+  font-size: 1.1rem;
+  color: var(--black);
+}
+
+/* ---------- Cards (class selector) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 22px;
+  background-color: var(--grey-light);
+  border-left: 3px solid var(--cyan);
+  border-radius: 4px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background-color: #eceef0;
+}
+
+/* ---------- LinkedIn ---------- */
+.link {
+  font-size: 1.1rem;
+  color: var(--black);
+  border-bottom: 2px solid var(--cyan);
+  padding-bottom: 2px;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: var(--cyan);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 28px;
+  text-align: center;
+  background-color: var(--black);
+}
+
+footer p {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 700px) {
+  #navbar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px;
+  }
+  #navbar ul {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  h1 {
+    font-size: 2.3rem;
+  }
+  #hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 50px 0;
+  }
+  .photo {
+    width: 80%;
+    max-width: 300px;
+  }
+}
